@@ -25,10 +25,10 @@ app.get('/', function(req, res) {
 
 
 // Get all the available sports filter by the ones that we're actually going to use
-app.get('/api/getAllSports', function(req, res) {
+app.get('/api/v2/getAllSports', function(req, res) {
     betfair.getEventTypes((success, eventTypes) => {
         res.json(eventTypes);
-    })
+    });
 });
 
 
