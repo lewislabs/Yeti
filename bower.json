@@ -1,0 +1,22 @@
+{
+  "name": "Yeti",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Christopher Lewis <chris.lewis@hudl.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "^0.14.7"
+  }
+}
