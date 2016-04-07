@@ -17,17 +17,20 @@ betfair.login((success)=>{
 
 var app = express();
 app.set('port', (process.env.PORT || 3000));
-app.use('/', express.static(path.join(__dirname, 'public')));
-
+app.use('/', express.static(path.join(__dirname, '../client')));
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + 'public/index.html'));
+    res.sendFile(path.join(__dirname + '/../client/home/index.html'));
 });
 
 
 // Get all the available sports filter by the ones that we're actually going to use
 app.get('/api/v2/getAllSports', function(req, res) {
     betfair.getEventTypes((success, eventTypes) => {
-        res.json(eventTypes);
+        if(success){
+            res.status(200);
+            res.json(eventTypes);
+        } 
+        else res.sendStatus(500);
     });
 });
 
