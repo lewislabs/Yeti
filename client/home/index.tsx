@@ -81,7 +81,7 @@ class AllSportsComponent extends React.Component<IAllSportsProperties, IAllSport
     public componentDidMount(){
         $.ajax({ 
             url: '/api/v2/getAllSports',
-            dataType: 'application/json',
+            dataType: 'json',
             type: 'GET',
             success: function (data) {
                 this.props.sports = data.eventTypes.map((sport)=>{
@@ -89,8 +89,10 @@ class AllSportsComponent extends React.Component<IAllSportsProperties, IAllSport
                 });
                 this.setState({isLoading: false});    
             }.bind(this),
-            error: function (data) {
-                console.log(''+ data);
+            error: function (xhr,errorType, exception) {
+                console.log(xhr);
+                console.log(errorType);
+                console.log(exception);
             }
         });
     }

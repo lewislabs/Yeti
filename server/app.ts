@@ -27,10 +27,11 @@ app.get('/', function(req, res) {
 app.get('/api/v2/getAllSports', function(req, res) {
     betfair.getEventTypes((success, eventTypes) => {
         if(success){
-            res.status(200);
-            res.json(eventTypes);
+            res.status(200).type('application/json').send(JSON.stringify(eventTypes));
         } 
-        else res.sendStatus(500);
+        else {
+            res.sendStatus(500);
+        }
     });
 });
 
